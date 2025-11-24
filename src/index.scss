@@ -1,0 +1,15 @@
+.sf-snow-flake {
+  z-index: 499 !important;
+  opacity: 0.7;
+}
+
+.snowflake {
+  & > svg {
+    fill: white !important;
+  }
+  .snowball-wrap {
+    & > svg {
+      fill: white !important;
+    }
+  }
+}
