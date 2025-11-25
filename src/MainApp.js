@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import * as S from './styles'
 import './index.scss'
-import {hero1, hero2, arrow} from "./images";
+import {hero1, hero2, arrow, alco, platypus, noalco, santa, please, colpac, jokeGift, megazord} from "./images";
 import {ModalWindow} from "./components/Modal";
 
 const MainApp = () => {
     const [isInitialImage, setIsInitialImage] = useState(true);
-    const [opacity, setOpacity] = useState(1)
+    const [opacity, setOpacity] = useState(1);
+    const [isJokeGift, setIsJokeGift] = useState(false);
+    const [isMegazordShow, setIsMegazordShow] = useState(false);
 
     useEffect(() => {
         document.addEventListener('scroll', () => {
@@ -38,7 +40,7 @@ const MainApp = () => {
     return (
         <div>
             <ModalWindow isOpen={isInitialImage} closeModal={() => setIsInitialImage(!isInitialImage)} $opacity={opacity}>
-                Я коварный Илья и сегодня я расскажу вам всю необходимую информацию о нашей с вами стратсессии
+                Я&nbsp;коварный Илья и&nbsp;сегодня я&nbsp;расскажу вам всю необходимую информацию о&nbsp;нашей с&nbsp;вами стратсессии
             </ModalWindow>
             <S.TopImage/>
             <S.Filter/>
@@ -73,10 +75,10 @@ const MainApp = () => {
                             Выезд в VERT: 16:30
                         </p>
                         <p>
-                            Дорога + пассивные активности: 16:30&nbsp;-&nbsp;19:00
+                            Дорога + пассивные активности: 16:30&nbsp;-&nbsp;19:30
                         </p>
                         <p>
-                            Ужин + разговоры: 20:00&nbsp;-&nbsp;23:00
+                            Ужин + разговоры: 20:00&nbsp;-&nbsp;00:00+
                         </p>
                         <p>
                             По&nbsp;приезде, при&nbsp;желании, можно сходить в&nbsp;спа после ужина
@@ -89,14 +91,17 @@ const MainApp = () => {
                         Подъем и завтрак: 9:00&nbsp;-&nbsp;10:00
                     </p>
                     <p>
-                        Тимбилдинг: 10:00&nbsp;-&nbsp;18:00
+                        Тимбилдинг: 10:00&nbsp;-&nbsp;18:00.
                         Тут еще будет фуршет прикиньте
                     </p>
                     <p>
                         Обед: 14:00&nbsp;-&nbsp;15:00
                     </p>
                     <p>
-                        Доп. активити + спа: 18:00&nbsp;-&nbsp;24:00
+                        Ужин: 19:00&nbsp;-&nbsp;20:00
+                    </p>
+                    <p>
+                        Доп. активити + спа: 20:00&nbsp;-&nbsp;00:00+
                     </p>
                 </section>
                 <S.Opacity>
@@ -105,33 +110,60 @@ const MainApp = () => {
                             20 декабря
                         </h2>
                         <p>
-                            Подъем и завтрак: 9:00&nbsp;-&nbsp;10:00
+                            Подъем и&nbsp;завтрак: 9:00&nbsp;-&nbsp;10:00
                         </p>
                         <p>
-                            Отъезд: 9:00&nbsp;-&nbsp;10:00
+                            Отъезд: 11:00
+                        </p>
+                        <p>
+                            Домашний чилл: 14:00&nbsp;-&nbsp;00:00
                         </p>
                     </section>
                 </S.Opacity>
                 <section className="withoutOpacity">
-                    <h3>
+                    <h2>
                         Но все не просто так, хотим получить от вас для наших активити:
-                    </h3>
-                    <p>1. Скинуть нашему фронтендеру 3-5 своих детских фото (нет, ему не просто для себя) + 1-2
-                        актуальных фото (ну пожалуйста)</p>
-                    <p>2. Раздобудьте пожалуйста новогодние колпаки (там в конце-концов НГ скоро)</p>
-                    <p>3. Хотим провести тайного санту, проведем опрос, кто также хочет</p>
-                    <h3>
+                    </h2>
+                    <br/>
+                    <p className="padding">
+                        <img alt="please" src={please} className="alco"/>
+                        1. Скинуть нашему фронтендеру 3-5 своих детских фото (нет, ему не&nbsp;просто для себя)
+                        + 1-2 актуальных фото (ну&nbsp;пожалуйста)
+                    </p>
+                    <br/>
+                    <p className="padding">
+                        <img alt="colpac" src={colpac} className="alco"/>
+                        2. Раздобудьте пожалуйста новогодние колпаки (там в&nbsp;конце-концов НГ&nbsp;скоро)
+                    </p>
+                    <br/>
+                    <p className="padding">
+                        {isJokeGift
+                          ? <img alt="santa" src={jokeGift} className="santa" onClick={() => setIsJokeGift(!isJokeGift)}/>
+                          : <img alt="santa" src={santa} className="santa" onClick={() => setIsJokeGift(!isJokeGift)} />
+                        }
+                        3. Хотим провести тайного Санту, проведем опрос, кто также хочет
+                    </p>
+                    <br/>
+                    <h2>
                         Важная информация
-                    </h3>
-                    <p>- Точка не оплачивает алкоголь, поэтому нужно взять свой</p>
-                    <p>- В митинг руме запрещен свой алкоголь</p>
+                    </h2>
+                    <br/>
+                    <p className="padding">
+                        <img alt="alco" src={alco} className="alco"/>
+                        - Точка не&nbsp;оплачивает алкоголь, поэтому нужно взять свой
+                    </p>
+                    <br/>
+                    <p className="padding">
+                        <img alt="noalco" src={noalco} className="noalco"/>
+                        - В&nbsp;митинг руме запрещен свой алкоголь
+                    </p>
                 </section>
                 <S.Opacity>
                     <section>
                         <h1>
                             Локация офиса
                         </h1>
-                        <p>Вставил карту, чтобы открытка была жестко крутой</p>
+                        <p>Вставил карту офиса, чтобы приглашалка была жестко крутой</p>
                         <S.YMap>
                             <a
                                 href="https://yandex.ru/maps/org/venskiy_dom/1266305635/?utm_medium=mapframe&utm_source=maps"
@@ -148,7 +180,7 @@ const MainApp = () => {
                     <h1>
                         Локация отеля
                     </h1>
-                    <p>Вставил карту, чтобы открытка была жестко крутой</p>
+                    <p>Вставил карту отеля, чтобы приглашалка была жестко крутой</p>
                     <S.YMap>
                         <a
                             href="https://yandex.ru/maps/org/vert_landscape_hotel/154730088017/?utm_medium=mapframe&utm_source=maps"
@@ -160,6 +192,19 @@ const MainApp = () => {
                         />
                     </S.YMap>
                 </section>
+                <S.Opacity>
+                    <section>
+                        <h2>
+                            Не&nbsp;придумал куда вставить, но&nbsp;тут&nbsp;же УТКОНОС, поэтому вставлю сюда
+                        </h2>
+
+                        {isMegazordShow
+                          ? <img alt="megazord" src={megazord} className="platypus" onClick={() => setIsMegazordShow(!isMegazordShow)} />
+                          : <img alt="platypus" src={platypus} className="platypus" onClick={() => setIsMegazordShow(!isMegazordShow)} />
+                        }
+
+                    </section>
+                </S.Opacity>
             </S.MainBlock>
             <S.BottomHero second={!isInitialImage} $opacity={opacity} id="hero">
                 {isInitialImage

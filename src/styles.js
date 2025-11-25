@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import nysym from './images/nysymbols.png'
-import nyfon from './images/NYImage.png'
+import nyfon from './images/NYImage_compress.png'
 import fon from './images/Fon.jpg'
 
 export const MainBlock = styled.div`
@@ -108,8 +108,59 @@ export const MainBlock = styled.div`
 
     .withoutOpacity {
         text-align: start;
+        position: relative;
+        
+        .padding {
+            padding-left: 50px;
+
+            @media (min-width: 768px) {
+                padding-left: 100px;
+            }
+        }
+        
+        img {
+            display: inline-block;
+            position: absolute;
+        }
+        
+        .santa {
+            width: 70px;
+            bottom: 0;
+            left: -20px;
+
+            @media (min-width: 768px) {
+                width: 130px;
+                bottom: -50px;
+                left: -30px;
+            }
+        }
+        
+        .alco {
+            width: 70px;
+            bottom: 0;
+            left: -20px;
+
+            @media (min-width: 768px) {
+                width: 130px;
+                bottom: -20px;
+                left: -30px;
+            }
+        }
+
+        .noalco {
+            width: 90px;
+            bottom: -10px;
+            left: -30px;
+
+            @media (min-width: 768px) {
+                width: 150px;
+                bottom: -50px;
+                left: -40px;
+            }
+        }
 
         p {
+            position: relative;
             font-size: 16px;
         }
 
@@ -306,6 +357,11 @@ export const BottomHero = styled.div`
 
 export const Opacity = styled.div`
   background-color: rgb(255, 255, 255, 0.7);
+    
+    .platypus {
+        width: 100%;
+        max-width: max-content;
+    }
 `;
 
 export const YMap = styled.div`

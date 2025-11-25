@@ -1,12 +1,18 @@
-const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js'
+    filename: '[name].[contenthash:8].js'
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html',
+    }),
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
@@ -29,7 +35,7 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'static/media/[name].[ext]',
+          filename: 'static/media/[name][ext]',
         }
       },
     ]

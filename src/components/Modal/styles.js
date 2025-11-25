@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Modal = styled.div`
     position: fixed;
-    top: 380px;
+    top: 440px;
     bottom: 0;
     left: 90px;
     justify-content: center;
     align-items: center;
     transition: all 0.25s ease;
-    display: ${({isOpen}) => (isOpen ? 'flex' : 'none')};
+    display: ${({isOpen, $opacity}) => (isOpen && $opacity !== 0 ? 'flex' : 'none')};
     z-index: ${({zIndex}) => zIndex};
     -webkit-tap-highlight-color: transparent;
     opacity: ${({$opacity}) => $opacity};
@@ -18,9 +18,18 @@ export const Modal = styled.div`
     }
 
     @media (min-width: 768px) {
+        left: 150px;
+    }
+
+    @media (min-width: 1024px) {
+        top: 450px;
+    }
+    
+    @media (min-width: 1440px) {
         top: 100px;
         left: 20px;
     }
+    
     @media (min-width: 2560px) {
         top: 850px;
         left: 300px;
@@ -38,6 +47,7 @@ export const ModalContent = styled.div`
     transition: all 0.25s ease;
     transform: ${({isOpen}) => (isOpen ? 'scale(1)' : 'scale(0.5)')};
     font-size: 12px;
+    width: 200px;
 
     @media (min-width: 375px) {
         font-size: 14px;
@@ -63,6 +73,16 @@ export const CircleBig = styled.div`
     width: 30px;
     background: inherit;
     border-radius: 50%;
+
+    @media (min-width: 768px) {  
+      left: 30px;  
+      bottom: 0;
+    }
+
+    @media (min-width: 1440px) {
+      left: 60px;
+      bottom: -15px;
+    }
 `;
 export const CircleSmall = styled.div`
     position: absolute;
@@ -72,4 +92,14 @@ export const CircleSmall = styled.div`
     width: 15px;
     background: inherit;
     border-radius: 50%;
+
+    @media (min-width: 768px) {
+      left: 28px;
+      bottom: -8px;
+    }
+
+    @media (min-width: 1440px) {
+      left: 60px;
+      bottom: -25px;
+    }
 `;
