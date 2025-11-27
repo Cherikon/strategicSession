@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Modal = styled.div`
     position: fixed;
-    top: 440px;
+    top: 400px;
     bottom: 0;
     left: 90px;
     justify-content: center;
@@ -51,7 +51,8 @@ export const ModalContent = styled.div`
 
     @media (min-width: 375px) {
         font-size: 14px;
-        padding: 30px;
+        padding: 15px 30px;
+        text-align: center;
     }
     @media (min-width: 768px) {
         width: 200px;

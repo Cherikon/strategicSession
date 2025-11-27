@@ -217,13 +217,14 @@ export const WelcomeBlock = styled.div`
   }
 
   h1 {
-    font-size: 32px;
-    margin-bottom: 48px;
+    font-size: 28px;
+    margin-bottom: 40px;
+    margin-top: 0;
     line-height: 1.2;
   }
 
   p {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   & > div {
@@ -245,6 +246,8 @@ export const WelcomeBlock = styled.div`
   @media (min-width: 1024px) {
     h1 {
       font-size: 60px;
+      margin-top: 40px;
+      margin-bottom: 48px;
     }
 
     p {
@@ -262,32 +265,6 @@ export const WelcomeBlock = styled.div`
     p {
       font-size: 40px;
       margin: 64px 0;
-    }
-  }
-
-  .mainInfo {
-    gap: 16px;
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-
-    p {
-      margin: 0;
-    }
-
-    & > div {
-      display: flex;
-      gap: 16px;
-    }
-
-    @media (min-width: 1024px) {
-      margin-left: 70px;
-      font-size: 30px;
-    }
-
-    @media (min-width: 2560px) {
-      font-size: 40px;
-      margin-left: 30px;
     }
   }
 
@@ -314,7 +291,6 @@ export const Filter = styled.div`
   }
 `;
 
-
 export const BottomHero = styled.div`
     position: fixed;
     right: 0;
@@ -329,7 +305,6 @@ export const BottomHero = styled.div`
     img {
         height: 200px;
         cursor: pointer;
-        //transform: scale(-1, 1);
     }
 
     @media (min-width: 768px) {
@@ -382,23 +357,4 @@ export const YMap = styled.div`
       height: 700px;
     }
   }
-`;
-
-export const Title = styled.div`
-  width: auto;
-  display: flex;
-  justify-content: flex-start;
-  font-weight: 700;
-
-  @media (min-width: 1024px) {
-    width: 130px;
-  }
-
-  @media (min-width: 2560px) {
-    width: 180px;
-  }
-`;
-
-export const Text = styled.div`
-
 `;
